@@ -45,10 +45,10 @@ header::before{content:"";position:absolute;inset:-40% 10% auto;height:180%;poin
 
 /* Story */
 .story{padding-block:24px 72px}
-.story .inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.story .inner{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
 .portrait{margin:0;position:relative}
 .frame{position:relative}
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:68% 30%;border-radius:2px}
+.portrait img{width:100%;height:auto;border-radius:2px}
 .frame::after{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--gold);opacity:.55;z-index:-1;border-radius:2px}
 .text{min-width:0;max-width:34em}
 .text h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4vw,40px);line-height:1.15;margin:0 0 18px;color:var(--fg);text-wrap:balance}
@@ -80,7 +80,6 @@ footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offse
 
 @media (max-width:760px){
   .story .inner{grid-template-columns:minmax(0,1fr)}
-  .portrait img{aspect-ratio:4/3;object-position:62% 25%}
   .frame::after{inset:10px -10px -10px 10px}
   header{padding-block:40px 28px}
 }
