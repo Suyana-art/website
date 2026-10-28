@@ -56,6 +56,18 @@ header::before{content:"";position:absolute;inset:-40% 10% auto;height:180%;poin
 .text p:last-child{margin-bottom:0}
 .sign{width:210px;height:auto;margin-top:22px}
 
+/* Studio grid: six Instagram posts, all linking to the profile */
+.studio{padding-block:8px 72px}
+.studio h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.6vw,36px);line-height:1.15;margin:0 0 6px;text-align:center}
+.studio-sub{text-align:center;color:var(--muted);margin:0 auto 28px;max-width:36em}
+.studio-sub a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.4vw,16px)}
+.tile{display:block;overflow:hidden;border-radius:2px;background:var(--sand)}
+.tile img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;transition:transform .5s ease,opacity .3s}
+.tile:hover img{transform:scale(1.03)}
+@media (max-width:560px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.tile img{transition:none}.tile:hover img{transform:none}}
+
 /* Signup band */
 .signup{background:var(--sky);padding-block:72px 80px;text-align:center}
 .signup .inner{max-width:560px}
@@ -110,6 +122,21 @@ footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offse
       <p>So I signed up for a painting course. A few lessons in, something clicked, and I simply started painting what I felt like painting.</p>
       <p>I come alive in front of the canvas, in a way I still don't have words for. These are my first paintings, and I'm glad you're here at the beginning.</p>
       <img class="sign" src="images/suyana-signature-small.svg" width="4891" height="2194" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="studio gutter" aria-labelledby="studio-title">
+  <div class="inner">
+    <h2 id="studio-title">From the studio</h2>
+    <p class="studio-sub">Paintings and work in progress. Follow along on Instagram: <a href="https://www.instagram.com/suyana.art/" rel="noopener">@suyana.art</a></p>
+    <div class="grid">
+      <a class="tile" href="https://www.instagram.com/suyana.art/" rel="noopener"><img src="images/instagram/succulent.jpg" width="600" height="600" alt="Painting of a woman in profile, her hair a garden of succulents and wild flowers" loading="lazy"></a>
+      <a class="tile" href="https://www.instagram.com/suyana.art/" rel="noopener"><img src="images/instagram/red.jpg" width="600" height="600" alt="Painting of a woman in red, framed by a dark circle of fine lines and blossoms" loading="lazy"></a>
+      <a class="tile" href="https://www.instagram.com/suyana.art/" rel="noopener"><img src="images/instagram/cat.jpg" width="600" height="600" alt="Painting of a black and white cat with green eyes" loading="lazy"></a>
+      <a class="tile" href="https://www.instagram.com/suyana.art/" rel="noopener"><img src="images/instagram/flowers.jpg" width="600" height="600" alt="Painting of a woman with roses in her hair on a deep blue background" loading="lazy"></a>
+      <a class="tile" href="https://www.instagram.com/suyana.art/" rel="noopener"><img src="images/instagram/hand.jpg" width="600" height="600" alt="Suyana's hand covered in green and blue paint" loading="lazy"></a>
+      <a class="tile" href="https://www.instagram.com/suyana.art/" rel="noopener"><img src="images/instagram/dots.jpg" width="600" height="600" alt="Portrait made of small coloured dots" loading="lazy"></a>
     </div>
   </div>
 </section>
