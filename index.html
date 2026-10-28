@@ -62,10 +62,14 @@ header::before{content:"";position:absolute;inset:-40% 10% auto;height:180%;poin
 .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin:0 auto 18px}
 .signup h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4.4vw,42px);line-height:1.15;margin:0 0 10px;text-wrap:balance}
 .signup p{margin:0 auto 26px;max-width:30em}
-form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.ml-block-form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0}
+.ml-form-formContent{flex:1 1 240px;min-width:0}
+.ml-form-embedSubmit{flex:0 0 auto}
+.ml-error input{border-color:#b4442f!important}
+@media (max-width:480px){.ml-form-embedSubmit{flex:1 1 100%}}
 label.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-input[type=email]{flex:1 1 240px;min-width:0;font:inherit;font-size:16px;padding:13px 16px;border:1px solid #c9d3da;border-radius:2px;background:#fdfcf9;color:var(--fg)}
-button{font:inherit;font-size:15px;font-weight:500;letter-spacing:.04em;padding:13px 24px;border:1px solid var(--ink);border-radius:2px;background:var(--ink);color:#fdfcf9;cursor:pointer;flex:0 0 auto}
+input[type=email]{width:100%;font:inherit;font-size:16px;padding:13px 16px;border:1px solid #c9d3da;border-radius:2px;background:#fdfcf9;color:var(--fg)}
+button{font:inherit;width:100%;font-size:15px;font-weight:500;letter-spacing:.04em;padding:13px 24px;border:1px solid var(--ink);border-radius:2px;background:var(--ink);color:#fdfcf9;cursor:pointer;flex:0 0 auto}
 button:hover{background:#1b3149}
 input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .small{font-size:13px;color:var(--muted);margin-top:14px}
@@ -115,12 +119,30 @@ footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offse
     <div class="dot" aria-hidden="true"></div>
     <h2 id="signup-title">The first paintings are almost here</h2>
     <p>The first paintings and limited editions go to this list first. Leave your email and I'll let you know when they're here.</p>
-    <form id="signup-form">
-      <label class="sr" for="email">Your email address</label>
-      <input type="email" id="email" name="email" placeholder="Your email address" autocomplete="email" required>
-      <button type="submit">Keep me posted</button>
-    </form>
-    <p class="thanks" id="thanks" hidden>Thank you. You'll hear from me when the paintings are here.</p>
+    <!-- MailerLite form "Suyana Art Website", adds subscribers to the SUYANA ART group (double opt-in) -->
+    <div id="mlb2-47717966" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-47717966">
+      <div class="ml-form-embedBody row-form">
+        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/761512/forms/202571920629040855/subscribe" data-code="" method="post" target="_blank">
+          <div class="ml-form-formContent">
+            <div class="ml-form-fieldRow ml-last-item">
+              <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                <label class="sr" for="email">Your email address</label>
+                <input type="email" id="email" name="fields[email]" placeholder="Your email address" autocomplete="email" aria-required="true" required>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="ml-submit" value="1">
+          <div class="ml-form-embedSubmit">
+            <button type="submit" class="primary">Keep me posted</button>
+            <button disabled="disabled" style="display: none;" type="button" class="loading">Sending&hellip;</button>
+          </div>
+          <input type="hidden" name="anticsrf" value="true">
+        </form>
+      </div>
+      <div class="ml-form-successBody row-success" style="display: none">
+        <p class="thanks">Thank you. Check your inbox to confirm your email.</p>
+      </div>
+    </div>
     <p class="small">A few emails a year. Unsubscribe anytime.</p>
   </div>
 </section>
@@ -130,12 +152,15 @@ footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offse
 </footer>
 
 <script>
-// Placeholder until the MailerLite "Suyana Art" form is connected.
-document.getElementById('signup-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  this.hidden = true;
-  document.getElementById('thanks').hidden = false;
-});
+  function ml_webform_success_47717966() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-47717966 .row-success').show();
+    $('.ml-subscribe-form-47717966 .row-form').hide();
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>
+  fetch("https://assets.mailerlite.com/jsonp/761512/forms/202571920629040855/takel");
 </script>
 </body>
 </html>
