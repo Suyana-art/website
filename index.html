@@ -8,7 +8,7 @@
 <meta name="description" content="Paintings by Suyana. Be the first to see the first paintings and limited editions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@400;500&display=swap">
 <style>
 /* Layout: a quiet sheet of paper. Handwritten name on a soft wash of sky and gold,
    portrait beside the story, then one calm blue band holding the signup. */
@@ -20,7 +20,6 @@
   --gold:#b38a3e;    /* thin golden accents */
   --fg:#2e2b26;      /* text */
   --muted:#76705f;
-  --hand:"La Belle Aurore", "Segoe Script", cursive;
   --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
   --body:"Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme:light;
@@ -39,8 +38,8 @@ header::before{content:"";position:absolute;inset:-40% 10% auto;height:180%;poin
     radial-gradient(38% 30% at 42% 52%, rgba(179,138,62,.16), transparent 70%),
     radial-gradient(34% 28% at 60% 44%, rgba(120,160,190,.20), transparent 72%);
   filter:blur(6px)}
-.name{position:relative;margin:0;font-family:var(--hand);font-weight:400;color:var(--ink);
-  font-size:clamp(64px,13vw,118px);line-height:1.05;padding-top:.12em}
+.name{position:relative;margin:0;line-height:0}
+.name img{width:min(78vw,420px);height:auto;margin-inline:auto}
 .stroke{position:relative;width:56px;height:1px;background:var(--gold);margin:14px auto 14px}
 .tag{position:relative;margin:0;font-size:12px;letter-spacing:.46em;text-transform:uppercase;color:var(--muted);padding-left:.46em}
 
@@ -48,13 +47,14 @@ header::before{content:"";position:absolute;inset:-40% 10% auto;height:180%;poin
 .story{padding-block:24px 72px}
 .story .inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
 .portrait{margin:0;position:relative}
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 30%;border-radius:2px}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:2px}
+.portrait figcaption{font-size:12px;color:var(--muted);margin-top:22px;letter-spacing:.04em}
 .portrait::after{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--gold);opacity:.55;z-index:-1;border-radius:2px}
 .text{min-width:0;max-width:34em}
 .text h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4vw,40px);line-height:1.15;margin:0 0 18px;color:var(--fg);text-wrap:balance}
 .text p{margin:0 0 1em}
 .text p:last-child{margin-bottom:0}
-.sign{font-family:var(--hand);color:var(--ink);font-size:34px;line-height:1;margin-top:18px}
+.sign{width:150px;height:auto;margin-top:22px}
 
 /* Signup band */
 .signup{background:var(--sky);padding-block:72px 80px;text-align:center}
@@ -76,20 +76,20 @@ footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offse
 
 @media (max-width:760px){
   .story .inner{grid-template-columns:minmax(0,1fr)}
-  .portrait img{aspect-ratio:4/3;object-position:62% 25%}
+  .portrait img{aspect-ratio:1/1;object-position:50% 15%}
   .portrait::after{inset:10px -10px -10px 10px}
   header{padding-block:40px 28px}
 }
 @media (prefers-reduced-motion:no-preference){
-  .name{animation:ink 1.4s ease-out both}
-  @keyframes ink{from{opacity:.25;letter-spacing:.04em}to{opacity:1;letter-spacing:0}}
+  .name img{animation:ink 1.6s ease-out both}
+  @keyframes ink{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}
 }
 </style>
 </head>
 <body>
 
 <header class="gutter">
-  <h1 class="name">Suyana</h1>
+  <h1 class="name"><img src="images/suyana-signature.png" width="1668" height="763" alt="Suyana"></h1>
   <div class="stroke"></div>
   <p class="tag">Paintings</p>
 </header>
@@ -97,7 +97,8 @@ footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offse
 <section class="story gutter" aria-labelledby="story-title">
   <div class="inner">
     <figure class="portrait">
-      <img src="images/suyana-portrait.jpg" width="1600" height="1068" alt="Suyana laughing, one hand in her hair, autumn leaves glowing behind her">
+      <img src="images/suyana-portrait-bw.jpg" width="768" height="960" alt="Suyana laughing in the sun, wearing a hat and a white lace blouse, outdoors among trees">
+      <figcaption>Photo: Axel Hebenstreit</figcaption>
     </figure>
     <div class="text">
       <h2 id="story-title">Painting is where I fill up again</h2>
@@ -105,7 +106,7 @@ footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offse
       <p>A year ago, in a time when I had run completely empty, I asked myself a question I had never asked before: what do I love to do, just for me? My whole life had gone into music and my work with voice. I realised I had no hobbies. None.</p>
       <p>So I signed up for a painting course. A few lessons in, something clicked, and I simply started painting what I felt like painting.</p>
       <p>I come alive in front of the canvas, in a way I still don't have words for. These are my first paintings, and I'm glad you're here at the beginning.</p>
-      <div class="sign" aria-hidden="true">Suyana</div>
+      <img class="sign" src="images/suyana-signature.png" width="1668" height="763" alt="">
     </div>
   </div>
 </section>
