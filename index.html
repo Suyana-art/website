@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suyana Paintings</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Paintings by Suyana. Be the first to see the first paintings and limited editions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@400;500&display=swap">
+<style>
+/* Layout: a quiet sheet of paper. Handwritten name on a soft wash of sky and gold,
+   portrait beside the story, then one calm blue band holding the signup. */
+:root{
+  --paper:#f8f4ed;   /* warm white page */
+  --sand:#ebe1d1;    /* beige lines and fills */
+  --sky:#e1e9ee;     /* soft light blue band */
+  --ink:#24405e;     /* deep blue: the name and links */
+  --gold:#b38a3e;    /* thin golden accents */
+  --fg:#2e2b26;      /* text */
+  --muted:#76705f;
+  --hand:"La Belle Aurore", "Segoe Script", cursive;
+  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body:"Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.65}
+img{max-width:100%;display:block}
+.gutter{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.inner{max-width:1080px;margin-inline:auto}
+
+/* Header: the name on a faint watercolor wash */
+header{position:relative;text-align:center;padding-block:56px 40px;overflow:hidden}
+header::before{content:"";position:absolute;inset:-40% 10% auto;height:180%;pointer-events:none;
+  background:
+    radial-gradient(38% 30% at 42% 52%, rgba(179,138,62,.16), transparent 70%),
+    radial-gradient(34% 28% at 60% 44%, rgba(120,160,190,.20), transparent 72%);
+  filter:blur(6px)}
+.name{position:relative;margin:0;font-family:var(--hand);font-weight:400;color:var(--ink);
+  font-size:clamp(64px,13vw,118px);line-height:1.05;padding-top:.12em}
+.stroke{position:relative;width:56px;height:1px;background:var(--gold);margin:14px auto 14px}
+.tag{position:relative;margin:0;font-size:12px;letter-spacing:.46em;text-transform:uppercase;color:var(--muted);padding-left:.46em}
+
+/* Story */
+.story{padding-block:24px 72px}
+.story .inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.portrait{margin:0;position:relative}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 30%;border-radius:2px}
+.portrait::after{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--gold);opacity:.55;z-index:-1;border-radius:2px}
+.text{min-width:0;max-width:34em}
+.text h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4vw,40px);line-height:1.15;margin:0 0 18px;color:var(--fg);text-wrap:balance}
+.text p{margin:0 0 1em}
+.text p:last-child{margin-bottom:0}
+.sign{font-family:var(--hand);color:var(--ink);font-size:34px;line-height:1;margin-top:18px}
+
+/* Signup band */
+.signup{background:var(--sky);padding-block:72px 80px;text-align:center}
+.signup .inner{max-width:560px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin:0 auto 18px}
+.signup h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4.4vw,42px);line-height:1.15;margin:0 0 10px;text-wrap:balance}
+.signup p{margin:0 auto 26px;max-width:30em}
+form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+label.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+input[type=email]{flex:1 1 240px;min-width:0;font:inherit;font-size:16px;padding:13px 16px;border:1px solid #c9d3da;border-radius:2px;background:#fdfcf9;color:var(--fg)}
+button{font:inherit;font-size:15px;font-weight:500;letter-spacing:.04em;padding:13px 24px;border:1px solid var(--ink);border-radius:2px;background:var(--ink);color:#fdfcf9;cursor:pointer;flex:0 0 auto}
+button:hover{background:#1b3149}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.small{font-size:13px;color:var(--muted);margin-top:14px}
+.thanks{font-family:var(--display);font-size:22px;color:var(--ink);margin-top:6px}
+
+footer{padding-block:34px 44px;text-align:center;font-size:14px;color:var(--muted)}
+footer a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:3px}
+
+@media (max-width:760px){
+  .story .inner{grid-template-columns:minmax(0,1fr)}
+  .portrait img{aspect-ratio:4/3;object-position:62% 25%}
+  .portrait::after{inset:10px -10px -10px 10px}
+  header{padding-block:40px 28px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .name{animation:ink 1.4s ease-out both}
+  @keyframes ink{from{opacity:.25;letter-spacing:.04em}to{opacity:1;letter-spacing:0}}
+}
+</style>
+</head>
+<body>
+
+<header class="gutter">
+  <h1 class="name">Suyana</h1>
+  <div class="stroke"></div>
+  <p class="tag">Paintings</p>
+</header>
+
+<section class="story gutter" aria-labelledby="story-title">
+  <div class="inner">
+    <figure class="portrait">
+      <img src="images/suyana-portrait.jpg" width="1600" height="1068" alt="Suyana laughing, one hand in her hair, autumn leaves glowing behind her">
+    </figure>
+    <div class="text">
+      <h2 id="story-title">Painting is where I fill up again</h2>
+      <p>I was always the one lingering in art shops. Looking at the paper, the paint, the brushes, wanting to know how, and never daring to begin.</p>
+      <p>A year ago, in a time when I had run completely empty, I asked myself a question I had never asked before: what do I love to do, just for me? My whole life had gone into music and my work with voice. I realised I had no hobbies. None.</p>
+      <p>So I signed up for a painting course. A few lessons in, something clicked, and I simply started painting what I felt like painting.</p>
+      <p>I come alive in front of the canvas, in a way I still don't have words for. These are my first paintings, and I'm glad you're here at the beginning.</p>
+      <div class="sign" aria-hidden="true">Suyana</div>
+    </div>
+  </div>
+</section>
+
+<section class="signup gutter" aria-labelledby="signup-title">
+  <div class="inner">
+    <div class="dot" aria-hidden="true"></div>
+    <h2 id="signup-title">The first paintings are almost here</h2>
+    <p>The first paintings and limited editions go to this list first. Leave your email and I'll let you know when they're here.</p>
+    <form id="signup-form">
+      <label class="sr" for="email">Your email address</label>
+      <input type="email" id="email" name="email" placeholder="Your email address" autocomplete="email" required>
+      <button type="submit">Keep me posted</button>
+    </form>
+    <p class="thanks" id="thanks" hidden>Thank you. You'll hear from me when the paintings are here.</p>
+    <p class="small">A few emails a year. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<footer class="gutter">
+  <p>&copy; 2026 Suyana &middot; Voice work and music at <a href="https://suyana.net">suyana.net</a></p>
+</footer>
+
+<script>
+// Placeholder until the MailerLite "Suyana Art" form is connected.
+document.getElementById('signup-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  this.hidden = true;
+  document.getElementById('thanks').hidden = false;
+});
+</script>
+</body>
+</html>
